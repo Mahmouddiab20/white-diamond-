@@ -1,0 +1,24 @@
+{
+  "name": "white-diamond-plaza",
+  "version": "1.0.0",
+  "description": "White Diamond Plaza - شقق مفروشة في المدينة المنورة",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'Static site - no build needed'",
+    "deploy": "echo 'Ready for Netlify deployment'"
+  },
+  "keywords": [
+    "apartments",
+    "rental",
+    "medina",
+    "saudi-arabia",
+    "furnished-apartments"
+  ],
+  "author": "White Diamond Plaza",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/white-diamond-plaza.git"
+  },
+  "homepage": "https://your-site-name.netlify.app"
+}

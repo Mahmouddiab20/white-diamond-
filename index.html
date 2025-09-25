@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Sticky Sections | Demo 10 | Codrops</title>
+		<meta name="description" content="Some examples for how sticky sections can be animated." />
+		<meta name="keywords" content="sticky, css, gsap, animation, sticky section, layout" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="stylesheet" href="https://use.typekit.net/lsf5xpv.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<!-- Mobile Responsive CSS -->
+		<link rel="stylesheet" type="text/css" href="css/mobile-responsive.css" />
+		<!-- Swiper CSS -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+		<script>document.documentElement.className="js";</script>
+	</head>
+	<body class="loading demo-10">
+		<!-- Navigation Bar -->
+		<nav class="navbar">
+			<div class="nav-container">
+				<!-- Mobile Hamburger -->
+				<div class="hamburger" onclick="toggleMobileMenu()">
+					<span class="bar"></span>
+					<span class="bar"></span>
+					<span class="bar"></span>
+				</div>
+				
+				<!-- Desktop Menu Left -->
+				<ul class="nav-menu nav-menu-left">
+					<li class="nav-item">
+						<a href="#home" class="nav-link">الرئيسية</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a href="#apartments" class="nav-link">الشقق ▼</a>
+						<ul class="dropdown-menu">
+							<li><a href="rooms-1br.html">شقق غرفة واحدة</a></li>
+							<li><a href="rooms-2br.html">شقق غرفتين</a></li>
+						</ul>
+					</li>
+				</ul>
+				
+				<!-- Logo Center -->
+				<div class="nav-logo">
+					<img src="img/LOGO PNG.png" alt="White Diamond Plaza Logo" class="logo-image">
+					<h1>WHITE DIAMOND PLAZA</h1>
+				</div>
+				
+				<!-- Desktop Menu Right -->
+				<ul class="nav-menu nav-menu-right">
+					<li class="nav-item">
+						<a href="#guide" class="nav-link">دليل اقامتك</a>
+					</li>
+					<li class="nav-item">
+						<a href="#reviews" class="nav-link">آراء عملائنا</a>
+					</li>
+					<li class="nav-item">
+						<a href="#contact" class="nav-link">اتصل بنا</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		<!-- Mobile Overlay Menu -->
+		<div class="mobile-overlay">
+			<div class="mobile-menu">
+				<div class="mobile-menu-header">
+					<h2>White Diamond Plaza</h2>
+					<button class="close-menu">&times;</button>
+				</div>
+				<div class="mobile-menu-content">
+					<ul class="mobile-nav-list">
+						<li><a href="#home">الرئيسية</a></li>
+						<li class="mobile-dropdown">
+							<a href="#apartments" class="mobile-dropdown-toggle">الشقق <span>▼</span></a>
+							<ul class="mobile-dropdown-menu">
+								<li><a href="rooms-1br.html">شقق غرفة واحدة</a></li>
+								<li><a href="rooms-2br.html">شقق غرفتين</a></li>
+							</ul>
+						</li>
+						<li><a href="#guide">دليل اقامتك في المدينه المنورة</a></li>
+						<li><a href="#reviews">آراء عملائنا</a></li>
+						<li><a href="#contact">اتصل بنا</a></li>
+					</ul>
+					<div class="mobile-contact">
+						<h3>تواصل معنا</h3>
+						<a href="https://wa.me/966501234567" class="mobile-whatsapp">واتساب</a>
+						<a href="tel:+966501234567" class="mobile-phone">اتصل بنا</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- WhatsApp Floating Button -->
+		<div class="whatsapp-float">
+			<a href="https://wa.me/966501234567" target="_blank" class="whatsapp-btn">
+				<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+					<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" fill="currentColor"/>
+				</svg>
+			</a>
+		</div>
+
+		<!-- Book for Inspection Button -->
+		<div class="inspection-float">
+			<a href="#booking-form" class="inspection-btn" onclick="scrollToForm()">
+				<span class="btn-text">احجز للمعاينة</span>
+				<span class="btn-icon">📅</span>
+			</a>
+			<div class="exclusive-offer" id="exclusiveOffer">
+				🔥 عروض حصرية - خصم 20% 🔥
+			</div>
+			<div class="book-now-offer" id="bookNowOffer">
+				📅 احجز الآن - عروض محدودة 📅
+			</div>
+		</div>
+
+		<main>
+			<header class="frame frame--header" style="background-image:url(img/daimond.jpg);">
+				<div class="hero-content animate-fade-in-right">
+					<h1 class="hero-title" style="opacity: 1;">
+						<span class="text-wrapper">
+							<span class="line line1" style="opacity: 1; transform: scaleX(1);"></span>
+							<span class="letters">
+								<span class="letter" style="opacity: 1; transform: scale(1) translateZ(0px);">ا</span><span class="letter" style="opacity: 1; transform: scale(1) translateZ(0px);">ب</span><span class="letter" style="opacity: 1; transform: scale(1) translateZ(0px);">ح</span><span class="letter" style="opacity: 1; transform: scale(1) translateZ(0px);">ث</span> <span class="letter" style="opacity: 1; transform: scale(1) translateZ(0px);">ع</span><span class="letter" style="opacity: 1; transform: scale(1) translateZ(0px);">ن</span> <span class="letter" style="opacity: 1; transform: scale(1) translateZ(0px);">م</span><span class="letter" style="opacity: 1; transform: scale(1) translateZ(0px);">ن</span><span class="letter" style="opacity: 1; transform: scale(1) translateZ(0px);">ز</span><span class="letter" style="opacity: 1; transform: scale(1) translateZ(0px);">ل</span><span class="letter" style="opacity: 1; transform: scale(1) translateZ(0px);">ك</span> <span class="letter" style="opacity: 1; transform: scale(1) translateZ(0px);">ا</span><span class="letter" style="opacity: 1; transform: scale(1) translateZ(0px);">ل</span><span class="letter" style="opacity: 1; transform: scale(1) translateZ(0px);">م</span><span class="letter" style="opacity: 1; transform: scale(1) translateZ(0px);">ث</span><span class="letter" style="opacity: 1; transform: scale(1) translateZ(0px);">ا</span><span class="letter" style="opacity: 1; transform: scale(1) translateZ(0px);">ل</span><span class="letter" style="opacity: 1; transform: scale(1) translateZ(0px);">ي</span> <span class="letter" style="opacity: 1; transform: scale(1) translateZ(0px);">م</span><span class="letter" style="opacity: 1; transform: scale(1) translateZ(0px);">ع</span> <span class="letter" style="opacity: 1; transform: scale(1) translateZ(0px);">و</span><span class="letter" style="opacity: 1; transform: scale(1) translateZ(0px);">ا</span><span class="letter" style="opacity: 1; transform: scale(1) translateZ(0px);">ي</span><span class="letter" style="opacity: 1; transform: scale(1) translateZ(0px);">ت</span> <span class="letter" style="opacity: 1; transform: scale(1) translateZ(0px);">د</span><span class="letter" style="opacity: 1; transform: scale(1) translateZ(0px);">ا</span><span class="letter" style="opacity: 1; transform: scale(1) translateZ(0px);">ي</span><span class="letter" style="opacity: 1; transform: scale(1) translateZ(0px);">م</span><span class="letter" style="opacity: 1; transform: scale(1) translateZ(0px);">و</span><span class="letter" style="opacity: 1; transform: scale(1) translateZ(0px);">ن</span><span class="letter" style="opacity: 1; transform: scale(1) translateZ(0px);">د</span> <span class="letter" style="opacity: 1; transform: scale(1) translateZ(0px);">ب</span><span class="letter" style="opacity: 1; transform: scale(1) translateZ(0px);">ل</span><span class="letter" style="opacity: 1; transform: scale(1) translateZ(0px);">ا</span><span class="letter" style="opacity: 1; transform: scale(1) translateZ(0px);">ز</span><span class="letter" style="opacity: 1; transform: scale(1) translateZ(0px);">ا</span>
+							</span>
+							<span class="line line2" style="opacity: 1; transform: scaleX(1);"></span>
+						</span>
+					</h1>
+					
+					<div class="hero-subtitle">
+						<h2 class="hero-title">
+							بيتك الثاني في قلب المدينة المنورة
+						</h2>
+						<h3 class="hero-description">
+							شقق مفروشة فاخرة على بُعد 9 كم من الحرم النبوي الشريف
+						</h3>
+						<p class="hero-text">
+							اكتشف راحة السكن في أجمل أحياء المدينة المنورة مع شقق مجهزة بالكامل وخدمات متكاملة. أسعار تبدأ من 2300 ريال مع عقود مرنة تناسب الطالب والموظفين والعائلات.
+						</p>
+					</div>
+					
+					<!-- Search Bar -->
+					
+
+					<!-- Book for Viewing CTA -->
+					<div class="hero-cta">
+						<a href="https://wa.me/966501234567" class="booking-cta" target="_blank">
+							<span class="cta-text">احجز للمعاينة</span>
+							<span class="cta-icon">💬</span>
+						</a>
+					</div>
+				</div>
+			</header>
+			<div class="content content--highlight content--intro">
+				<p class="text-large">                  اكتشف راحة السكن في أجمل أحياء المدينة المنورة مع شقق مجهزة بالكامل وخدمات متكاملة. أسعار تبدأ من 2300 ريال مع عقود مرنة تناسب الطالب والموظفين والعائلات.
+				</p>
+				
+				<!-- Desktop: Services Grid -->
+				<div class="desktop-services-grid">
+					<div class="service-item">
+						<div class="service-icon">
+							<img src="img/security-icon.svg" alt="الأمان والحراسة">
+						</div>
+						<h3 class="service-title">الأمان والحراسة</h3>
+						<p class="service-desc">حراسة 24 ساعة ونظام مراقبة متطور</p>
+					</div>
+					<div class="service-item">
+						<div class="service-icon">
+							<img src="img/location-icon.svg" alt="الموقع الاستراتيجي">
+						</div>
+						<h3 class="service-title">الموقع الاستراتيجي</h3>
+						<p class="service-desc">9 كم من الحرم النبوي ومسجد قباء</p>
+					</div>
+					<div class="service-item">
+						<div class="service-icon">
+							<img src="img/price-icon.svg" alt="الأسعار التنافسية">
+						</div>
+						<h3 class="service-title">الأسعار التنافسية</h3>
+						<p class="service-desc">أسعار مناسبة مع خصومات للعقود الطويلة</p>
+					</div>
+					<div class="service-item">
+						<div class="service-icon">
+							<img src="img/services-icon.svg" alt="الخدمات المتكاملة">
+						</div>
+						<h3 class="service-title">الخدمات المتكاملة</h3>
+						<p class="service-desc">إنترنت مجاني، كهرباء، ماء، تنظيف</p>
+					</div>
+					<div class="service-item">
+						<div class="service-icon">
+							<img src="img/parking-icon.svg" alt="المواقف المجانية">
+						</div>
+						<h3 class="service-title">المواقف المجانية</h3>
+						<p class="service-desc">مواقف آمنة ومظللة لجميع النزلاء</p>
+					</div>
+					<div class="service-item">
+						<div class="service-icon">
+							<img src="img/services-icon.svg" alt="العقود المرنة">
+						</div>
+						<h3 class="service-title">العقود المرنة</h3>
+						<p class="service-desc">عقود شهرية وفصلية وسنوية</p>
+					</div>
+				</div>
+				
+				<!-- Mobile: سلايدر الكروت -->
+				<div class="swiper mySwiper">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="SingleCard">
+								<div class="SingleCard_icon">
+									<img src="img/security-icon.svg" alt="الأمان والحراسة">
+								</div>
+								<p class="SingleCard_cardTitle">الأمان والحراسة</p>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="SingleCard">
+								<div class="SingleCard_icon">
+									<img src="img/location-icon.svg" alt="الموقع الاستراتيجي">
+								</div>
+								<p class="SingleCard_cardTitle">الموقع الاستراتيجي</p>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="SingleCard">
+								<div class="SingleCard_icon">
+									<img src="img/price-icon.svg" alt="الأسعار التنافسية">
+								</div>
+								<p class="SingleCard_cardTitle">الأسعار التنافسية</p>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="SingleCard">
+								<div class="SingleCard_icon">
+									<img src="img/services-icon.svg" alt="الخدمات المتكاملة">
+								</div>
+								<p class="SingleCard_cardTitle">الخدمات المتكاملة</p>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="SingleCard">
+								<div class="SingleCard_icon">
+									<img src="img/parking-icon.svg" alt="المواقف المجانية">
+								</div>
+								<p class="SingleCard_cardTitle">المواقف المجانية</p>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="SingleCard">
+								<div class="SingleCard_icon">
+									<img src="img/services-icon.svg" alt="العقود المرنة">
+								</div>
+								<p class="SingleCard_cardTitle">العقود المرنة</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- أزرار التحكم -->
+					<div class="swiper-button-next"></div>
+					<div class="swiper-button-prev"></div>
+				</div>
+			</div>
+			<div class="wrap">
+				<div class="content content--sticky content--half bg-1">
+					<!-- Desktop Content -->
+					<div class="desktop-content">
+						<img class="content__img content__img--small" src="assets/imgs/masjid-al-qiblatain-in-almadinah.jpg" />
+						<h2 class="content__title"><i>لماذا تختار وايت دايموند بالزا؟</i></h2>
+						<p class="content__text content__text--narrow text-meta">بدون أي تكاليف إضافية</p>
+						<div class="content__text">
+							<p>شقق مفروشة بالكامل - أثاث عصري وأجهزة كهربائية حديثة، جاهزة للسكن فورًا</p>
+							<p>موقع استراتيجي قريب من الحرم - 9 كم فقط من المسجد النبوي الشريف و9 كم من مسجد قباء المبارك</p>
+							<p>أمان وحراسة 24 ساعة - نظام مراقبة متطور وحراسة على مدار الساعة لضمان سالمة جميع النزالء</p>
+							<p>أسعار تنافسية وعقود مرنة - باقات إيجار شهرية وفصلية وسنوية بأسعار مخفضة للعقود طويلة المدى</p>
+							<p>خدمات متكاملة مشمولة - إنترنت مجاني عالي السرعة، كهرباء وماء، صيانة دورية، وتنظيف أسبوعي</p>
+							<p>مواقف سيارات مجانية - مواقف آمنة ومظللة لجميع النزالء مع سهولة الوصول للشقق</p>
+						</div>
+					</div>
+					
+					<!-- Mobile Corporate Package Info -->
+					<div class="mobile-corporate-package">
+						<h3>باقة الشركات (5 شقق فأكثر)</h3>
+						<p>• خصم خاص: حتى 20% على الأسعار العادية<br>
+						• خدمات إضافية: إدارة العقود، فواتير موحدة، خدمة عملاء مخصصة<br>
+						• مرونة كاملة: إمكانية إضافة أو تقليل عدد الشقق حسب الحاجة<br>
+						للحصول على عرض سعر مخصص لشركتك</p>
+					</div>
+					
+					<!-- Mobile Flip Cards Container -->
+					<div class="mobile-cards-container">
+						<!-- الكارت الأول -->
+						<div class="flip-card" id="card1">
+							<!-- أيقونات -->
+							<div class="floating-icon icon1">
+								<img src="img/LOGO PNG.png" alt="Logo" class="floating-logo">
+							</div>
+							<div class="floating-icon icon2">
+								<img src="img/LOGO PNG.png" alt="Logo" class="floating-logo">
+							</div>
+							<div class="floating-icon icon3">
+								<img src="img/LOGO PNG.png" alt="Logo" class="floating-logo">
+							</div>
+							<div class="floating-icon icon4">
+								<img src="img/LOGO PNG.png" alt="Logo" class="floating-logo">
+							</div>
+
+							<!-- الكارت -->
+							<div class="flip-card-inner">
+								<div class="flip-card-front">
+									<img src="assets/imgs/masjid-al-qiblatain-in-almadinah.jpg" alt="Card Image">
+									<h4>عروض حصرية</h4>
+								</div>
+								<div class="flip-card-back">
+									<h3>شقة غرفتين + صالة</h3>
+									<p>الإيجار الشهري: 3,200 ريال<br>
+									الإيجار الفصلي: 3,000 ريال/شهر (خصم 6%)<br>
+									الإيجار السنوي: 2,800 ريال/شهر (خصم 12%)<br><br>
+									المساحة: 85 متر مربع<br>
+									تشمل: غرفتين نوم، صالة، مطبخ مجهز، حمامين</p>
+								</div>
+							</div>
+						</div>
+						
+						<!-- الكارت الثاني -->
+						<div class="flip-card" id="card2">
+							<!-- أيقونات -->
+							<div class="floating-icon icon1">			
+							<img src="img/LOGO PNG.png" alt="Logo" class="floating-logo">
+							</div>
+							<div class="floating-icon icon2">							
+									<img src="img/LOGO PNG.png" alt="Logo" class="floating-logo">
+							</div>
+							<div class="floating-icon icon3">				
+								<img src="img/LOGO PNG.png" alt="Logo" class="floating-logo">
+							</div>
+							<div class="floating-icon icon4">	
+							<img src="img/LOGO PNG.png" alt="Logo" class="floating-logo">
+							</div>
+
+							<!-- الكارت -->
+							<div class="flip-card-inner">
+								<div class="flip-card-front">
+									<img src="assets/imgs/IMG_3407.jpg" alt="Card Image">
+									<h4>خدمات متميزة</h4>
+								</div>
+								<div class="flip-card-back">
+									<h3>شقة غرفة واحد + صالة</h3>
+									<p>الإيجار الشهري: 2,500 ريال<br>
+									الإيجار الفصلي: 2,300 ريال/شهر (خصم 8%)<br>
+									الإيجار السنوي: 2,100 ريال/شهر (خصم 16%)<br><br>
+									المساحة: 60 متر مربع<br>
+									تشمل: غرفة نوم، صالة صغيرة، مطبخ مجهز، حمام</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="content content--sticky content--half bg-2">
+					<!-- Desktop: Single Image -->
+					<div class="desktop-content">
+						<img class="content__img content__img--small" src="assets/imgs/IMG_3407.jpg" />
+						<h2 class="content__title"><i>غرفتين</i> </h2>
+						<p class="content__text content__text--narrow text-meta">اضغط للتفاصيل</p>
+					</div>
+					
+					<!-- Mobile: دليل إقامتك في المدينة المنورة Slider -->
+					<div class="mobile-slider-container">
+						<div class="apartment-slider" id="apartmentSlider">
+							<!-- Slide 1: أبو بكر العمودي -->
+							<div class="slider-slide active">
+								<img class="slider-img" src="assets/imgs/ابو بكر العمودي.jpg" alt="أبو بكر العمودي" />
+								<div class="slider-content">
+									<h3 class="slider-title">أبو بكر العمودي</h3>
+									<p class="slider-desc">4 كيلو متر - 8 دقائق</p>
+									<a href="https://www.google.com/maps/dir/White+Diamond+Plaza+المدينة+المنورة/ابو+بكر+العمودي+المدينة+المنورة" target="_blank" class="slider-directions-btn">الاتجاهات من وايت دايموند</a>
+								</div>
+							</div>
+							
+							<!-- Slide 2: متحف قصة الخلق -->
+							<div class="slider-slide">
+								<img class="slider-img" src="assets/imgs/قصه الخلق.jpg" alt="متحف قصة الخلق" />
+								<div class="slider-content">
+									<h3 class="slider-title">متحف قصة الخلق</h3>
+									<p class="slider-desc">8 كيلو متر - 13 دقيقة</p>
+									<a href="https://www.google.com/maps/dir/White+Diamond+Plaza+المدينة+المنورة/متحف+قصة+الخلق+المدينة+المنورة" target="_blank" class="slider-directions-btn">الاتجاهات من وايت دايموند</a>
+								</div>
+							</div>
+							
+							<!-- Slide 3: المتحف الدولي -->
+							<div class="slider-slide">
+								<img class="slider-img" src="assets/imgs/المتحف الدولي.jpg" alt="المعرض و المتحف الدولي للسيرة النبوية و الحضارات" />
+									<div class="slider-content">
+										<h3 class="slider-title">المعرض و المتحف الدولي للسيرة النبوية و الحضارات</h3>
+										<p class="slider-desc">9 كيلو متر - 16 دقيقة</p>
+										<a href="https://www.google.com/maps/dir/White+Diamond+Plaza+المدينة+المنورة/المعرض+و+المتحف+الدولي+للسيرة+النبوية+و+الحضارات+المدينة+المنورة" target="_blank" class="slider-directions-btn">الاتجاهات من وايت دايموند</a>
+									</div>
+							</div>
+							
+							<!-- Slide 4: جبل أحد -->
+							<div class="slider-slide">
+								<img class="slider-img" src="assets/imgs/جبل احد.jpg" alt="جبل أحد" />
+									<div class="slider-content">
+										<h3 class="slider-title">جبل أحد</h3>
+										<p class="slider-desc">7 كيلو متر - 20 دقيقة</p>
+										<a href="https://www.google.com/maps/dir/White+Diamond+Plaza+المدينة+المنورة/جبل+أحد+المدينة+المنورة" target="_blank" class="slider-directions-btn">الاتجاهات من وايت دايموند</a>
+									</div>
+							</div>
+							
+							<!-- Slide 5: مسجد الأنصار -->
+							<div class="slider-slide">
+								<img class="slider-img" src="assets/imgs/مسجد الانصار.PNG" alt="مسجد الأنصار" />
+									<div class="slider-content">
+										<h3 class="slider-title">مسجد الأنصار</h3>
+										<p class="slider-desc">600 متر - 1 دقيقة</p>
+										<a href="https://www.google.com/maps/dir/White+Diamond+Plaza+المدينة+المنورة/مسجد+الأنصار+المدينة+المنورة" target="_blank" class="slider-directions-btn">الاتجاهات من وايت دايموند</a>
+									</div>
+							</div>
+							
+							<!-- Slide 6: مسجد قباء -->
+							<div class="slider-slide">
+								<img class="slider-img" src="assets/imgs/مسجد قباء.jpg" alt="مسجد قباء" />
+									<div class="slider-content">
+										<h3 class="slider-title">مسجد قباء</h3>
+										<p class="slider-desc">9 كيلو متر - 12 دقيقة</p>
+										<a href="https://www.google.com/maps/dir/White+Diamond+Plaza+المدينة+المنورة/مسجد+قباء+المدينة+المنورة" target="_blank" class="slider-directions-btn">الاتجاهات من وايت دايموند</a>
+									</div>
+							</div>
+							
+							<!-- Slide 7: المساجد السبع -->
+							<div class="slider-slide">
+								<img class="slider-img" src="assets/imgs/المساجد السبعه.jpg" alt="المساجد السبع" />
+									<div class="slider-content">
+										<h3 class="slider-title">المساجد السبع</h3>
+										<p class="slider-desc">9 كيلو متر - 12 دقيقة</p>
+										<a href="https://www.google.com/maps/dir/White+Diamond+Plaza+المدينة+المنورة/المساجد+السبع+المدينة+المنورة" target="_blank" class="slider-directions-btn">الاتجاهات من وايت دايموند</a>
+									</div>
+							</div>
+							
+							<!-- Slide 8: المسجد النبوي -->
+							<div class="slider-slide">
+								<img class="slider-img" src="assets/imgs/masjid-nabawi-3639064.jpg" alt="المسجد النبوي" />
+									<div class="slider-content">
+										<h3 class="slider-title">المسجد النبوي</h3>
+										<p class="slider-desc">9 كيلو متر - 14 دقيقة</p>
+										<a href="https://www.google.com/maps/dir/White+Diamond+Plaza+المدينة+المنورة/المسجد+النبوي+المدينة+المنورة" target="_blank" class="slider-directions-btn">الاتجاهات من وايت دايموند</a>
+									</div>
+							</div>
+							
+							<!-- Slide 9: متحف دار المدينة -->
+							<div class="slider-slide">
+								<img class="slider-img" src="assets/imgs/dar-almadinah-museum.jpg" alt="متحف دار المدينة" />
+									<div class="slider-content">
+										<h3 class="slider-title">متحف دار المدينة</h3>
+										<p class="slider-desc">11 كيلو متر - 14 دقيقة</p>
+										<a href="https://www.google.com/maps/dir/White+Diamond+Plaza+المدينة+المنورة/متحف+دار+المدينة+المدينة+المنورة" target="_blank" class="slider-directions-btn">الاتجاهات من وايت دايموند</a>
+									</div>
+							</div>
+							
+							<!-- Slide 10: مجمع الملك فهد لطباعة المصحف الشريف -->
+							<div class="slider-slide">
+								<img class="slider-img" src="assets/imgs/مجمع الملك فهد لطباعة المصحف الشريف.JPG.jpg" alt="مجمع الملك فهد لطباعة المصحف الشريف" />
+									<div class="slider-content">
+										<h3 class="slider-title">مجمع الملك فهد لطباعة المصحف الشريف</h3>
+										<p class="slider-desc">13 كيلو متر - 15 دقيقة</p>
+										<a href="https://www.google.com/maps/dir/White+Diamond+Plaza+المدينة+المنورة/مجمع+الملك+فهد+لطباعة+المصحف+الشريف+المدينة+المنورة" target="_blank" class="slider-directions-btn">الاتجاهات من وايت دايموند</a>
+									</div>
+							</div>
+							
+							<!-- Slide 11: مسجد القبلتين -->
+							<div class="slider-slide">
+								<img class="slider-img" src="assets/imgs/masjid-al-qiblatain-in-almadinah.jpg" alt="مسجد القبلتين" />
+									<div class="slider-content">
+										<h3 class="slider-title">مسجد القبلتين</h3>
+										<p class="slider-desc">8 كيلو متر - 12 دقيقة</p>
+										<a href="https://www.google.com/maps/dir/White+Diamond+Plaza+المدينة+المنورة/مسجد+القبلتين+المدينة+المنورة" target="_blank" class="slider-directions-btn">الاتجاهات من وايت دايموند</a>
+									</div>
+							</div>
+							
+							<!-- Slide 12: مسجد سيد الشهداء -->
+							<div class="slider-slide">
+								<img class="slider-img" src="assets/imgs/Masjid Sayyid al-Shuhada.jpg" alt="مسجد سيد الشهداء" />
+									<div class="slider-content">
+										<h3 class="slider-title">مسجد سيد الشهداء</h3>
+										<p class="slider-desc">3 كيلو متر - 6 دقائق</p>
+										<a href="https://www.google.com/maps/dir/White+Diamond+Plaza+المدينة+المنورة/مسجد+سيد+الشهداء+المدينة+المنورة" target="_blank" class="slider-directions-btn">الاتجاهات من وايت دايموند</a>
+									</div>
+							</div>
+							
+							<!-- Slide 13: مسجد الميقات -->
+							<div class="slider-slide">
+								<img class="slider-img" src="assets/imgs/Dhul Hulaifah Miqat Mosque.jpg" alt="مسجد الميقات" />
+								<div class="slider-content">
+									<h3 class="slider-title">مسجد الميقات</h3>
+									<p class="slider-desc">15 كيلو متر - 20 دقيقة</p>
+									<a href="https://www.google.com/maps/dir/White+Diamond+Plaza+المدينة+المنورة/مسجد+الميقات+المدينة+المنورة" target="_blank" class="slider-directions-btn">الاتجاهات من وايت دايموند</a>
+								</div>
+							</div>
+						</div>
+						
+						<!-- Slider Controls -->
+						<div class="slider-controls">
+							<button class="slider-btn prev-btn" id="prevSlide">‹</button>
+							<button class="slider-btn next-btn" id="nextSlide">›</button>
+						</div>
+						
+						<!-- Slider Info -->
+						<div class="slider-info">
+							<h2 class="apartment-title">دليلك السياحي في المدينة المنورة</h2>
+							<p class="apartment-price">اكتشف المعالم القريبة من وايت دايموند بلازا</p>
+						</div>
+					</div>
+				</div>
+				<div class="content content--sticky content--half bg-3">
+					<!-- Desktop Content -->
+					<div class="desktop-content">
+						<img class="content__img content__img--small" src="assets/imgs/masjid-nabawi-3639064.jpg" />
+						<h2 class="content__title"><i>احجز شقتك الآن</i> فورم الحجز السريع</h2>
+						<p class="content__text content__text--narrow text-meta">احجز شقتك في دقائق معدودة</p>
+					</div>
+					
+					<!-- Mobile Booking Form Container -->
+					<div class="mobile-booking-container" id="booking-form">
+						<h2 class="booking-title">احجز شقتك الآن</h2>
+						<p class="booking-subtitle">فورم الحجز السريع</p>
+						
+						<!-- Booking Form -->
+						<form class="booking-form" id="bookingForm">
+							<div class="form-group">
+								<label for="name">الاسم الكامل *</label>
+								<input type="text" id="name" name="name" required>
+							</div>
+							
+							<div class="form-group">
+								<label for="phone">رقم الهاتف *</label>
+								<input type="tel" id="phone" name="phone" required>
+							</div>
+							
+							<div class="form-group">
+								<label for="email">البريد الإلكتروني</label>
+								<input type="email" id="email" name="email">
+							</div>
+							
+							<div class="form-group">
+								<label for="apartment">نوع الشقة *</label>
+								<select id="apartment" name="apartment" required>
+									<option value="">اختر نوع الشقة</option>
+									<option value="1br">شقة غرفة واحدة</option>
+									<option value="2br">شقة غرفتين</option>
+								</select>
+							</div>
+							
+							<div class="form-group">
+								<label for="duration">مدة الإيجار *</label>
+								<select id="duration" name="duration" required>
+									<option value="">اختر المدة</option>
+									<option value="monthly">شهري</option>
+									<option value="quarterly">فصلي</option>
+									<option value="yearly">سنوي</option>
+								</select>
+							</div>
+							
+							<div class="form-group">
+								<label for="date">تاريخ السكن المتوقع</label>
+								<input type="date" id="date" name="date">
+							</div>
+							
+							<div class="form-group">
+								<label for="message">رسالة إضافية</label>
+								<textarea id="message" name="message" rows="3" placeholder="أي معلومات إضافية تريد إضافتها..."></textarea>
+							</div>
+							
+							<button type="submit" class="booking-submit-btn">
+								<span>احجز الآن</span>
+								<span class="btn-icon">📱</span>
+							</button>
+						</form>
+					</div>
+				</div>
+				<div class="content content--sticky content--half bg-4">
+					<!-- Desktop Content -->
+					<div class="desktop-content">
+						<img class="content__img content__img--small" src="img/10.png" />
+						<h2 class="content__title"><i>استفسر عن الشقق</i> فورم الاستفسار</h2>
+						<p class="content__text content__text--narrow text-meta">اسأل عن أي شيء تريد معرفته</p>
+					</div>
+					
+					<!-- Mobile Inquiry Form Container -->
+					<div class="mobile-inquiry-container">
+						<h2 class="inquiry-title">استفسر عن الشقق</h2>
+						<p class="inquiry-subtitle">فورم الاستفسار</p>
+						
+						<!-- Inquiry Form 2 -->
+						<form class="inquiry-form" id="inquiryForm2">
+							<div class="form-group">
+								<label for="name2">الاسم الكامل *</label>
+								<input type="text" id="name2" name="name" required>
+							</div>
+							
+							<div class="form-group">
+								<label for="phone2">رقم الهاتف *</label>
+								<input type="tel" id="phone2" name="phone" required>
+							</div>
+							
+							<div class="form-group">
+								<label for="email2">البريد الإلكتروني</label>
+								<input type="email" id="email2" name="email">
+							</div>
+							
+							<div class="form-group">
+								<label for="inquiryType2">نوع الاستفسار *</label>
+								<select id="inquiryType2" name="inquiryType" required>
+									<option value="">اختر نوع الاستفسار</option>
+									<option value="pricing">الأسعار والعروض</option>
+									<option value="availability">توفر الشقق</option>
+									<option value="services">الخدمات المقدمة</option>
+									<option value="location">الموقع والمسافات</option>
+									<option value="contract">شروط العقد</option>
+									<option value="other">أخرى</option>
+								</select>
+							</div>
+							
+							<div class="form-group">
+								<label for="budget2">الميزانية المتوقعة (اختياري)</label>
+								<select id="budget2" name="budget">
+									<option value="">اختر الميزانية</option>
+									<option value="2000-2500">2000 - 2500 ريال</option>
+									<option value="2500-3000">2500 - 3000 ريال</option>
+									<option value="3000-3500">3000 - 3500 ريال</option>
+									<option value="3500+">أكثر من 3500 ريال</option>
+								</select>
+							</div>
+							
+							<div class="form-group">
+								<label for="occupants2">عدد الأشخاص</label>
+								<select id="occupants2" name="occupants">
+									<option value="">اختر عدد الأشخاص</option>
+									<option value="1">شخص واحد</option>
+									<option value="2">شخصان</option>
+									<option value="3">ثلاثة أشخاص</option>
+									<option value="4">أربعة أشخاص</option>
+									<option value="5+">أكثر من أربعة</option>
+								</select>
+							</div>
+							
+							<div class="form-group">
+								<label for="message2">رسالتك *</label>
+								<textarea id="message2" name="message" rows="4" placeholder="اكتب استفسارك هنا..." required></textarea>
+							</div>
+							
+							<button type="submit" class="inquiry-submit-btn">
+								<span>أرسل الاستفسار</span>
+								<span class="btn-icon">💬</span>
+							</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="content content--highlight content--outro">
+				<!-- آراء العملاء -->
+				<div class="reviews-section">
+					<h2 class="section-title">آراء عملائنا</h2>
+					<p class="section-subtitle">ماذا يقول نزلاؤنا عنا؟</p>
+					
+					<!-- Desktop Reviews -->
+					<div class="desktop-reviews">
+						<div class="review-card">
+							<div class="review-content">
+								<p class="review-text">"سكنت في وايت دايموند بلازا لمدة سنتين كاملتين أثناء دراستي في الجامعة. المكان آمن ومريح والموقع ممتاز قريب من كل شيء. الأهم من ذلك القرب من الحرم النبوي الشريف."</p>
+							</div>
+							<div class="review-author">
+								<h4 class="author-name">أحمد العتيبي</h4>
+								<p class="author-title">طالب جامعي</p>
+							</div>
+							<div class="review-rating">
+								<span class="stars">⭐⭐⭐⭐⭐</span>
+							</div>
+						</div>
+						
+						<div class="review-card">
+							<div class="review-content">
+								<p class="review-text">"كموظفة مغتربة، كنت أبحث عن مكان يجمع بين الراحة والأمان. وجدت ذلك في وايت دايموند بلازا. الشقة مجهزة بكل ما أحتاجه والخدمات ممتازة."</p>
+							</div>
+							<div class="review-author">
+								<h4 class="author-name">فاطمة المصري</h4>
+								<p class="author-title">مهندسة</p>
+							</div>
+							<div class="review-rating">
+								<span class="stars">⭐⭐⭐⭐⭐</span>
+							</div>
+						</div>
+						
+						<div class="review-card">
+							<div class="review-content">
+								<p class="review-text">"اخترنا وايت دايموند بلازا لعائلتنا الصغيرة وكان القرار الصحيح. المكان آمن للأطفال والجيران محترمون. نشعر بالراحة والاستقرار هنا."</p>
+							</div>
+							<div class="review-author">
+								<h4 class="author-name">عائلة أبو محمد</h4>
+								<p class="author-title">مقيمين منذ 18 شهر</p>
+							</div>
+							<div class="review-rating">
+								<span class="stars">⭐⭐⭐⭐⭐</span>
+							</div>
+						</div>
+					</div>
+					</div>
+					
+				<!-- الأسئلة الشائعة -->
+				<div class="faq-section">
+					<h2 class="section-title">الأسئلة الشائعة</h2>
+					<p class="section-subtitle">إجابات على أهم استفساراتكم</p>
+					
+						<div class="faq-accordion">
+							<!-- FAQ Item 1 -->
+							<div class="faq-item">
+								<div class="faq-question">
+									<h3>ما هي المسافة من وايت دايموند بلازا إلى الحرم النبوي الشريف؟</h3>
+									<span class="faq-icon">+</span>
+								</div>
+								<div class="faq-answer">
+									<p>المسافة 9 كيلومتر بالضبط من الحرم النبوي الشريف، أي حوالي 14 دقيقة بالسيارة. كما نبعد 9 كم عن مسجد قباء و7 كم عن جبل أحد المبارك.</p>
+								</div>
+							</div>
+							
+							<!-- FAQ Item 2 -->
+							<div class="faq-item">
+								<div class="faq-question">
+									<h3>هل الشقق مفروشة بالكامل وما هي الأجهزة المتوفرة؟</h3>
+									<span class="faq-icon">+</span>
+								</div>
+								<div class="faq-answer">
+									<p>نعم، جميع شقق وايت دايموند بلازا مفروشة بالكامل وتشمل: أثاث غرف النوم والصالة، ثلاجة، غسالة، مكيفات، تلفزيون، وجميع الأدوات المنزلية الأساسية.</p>
+								</div>
+							</div>
+							
+							<!-- FAQ Item 3 -->
+							<div class="faq-item">
+								<div class="faq-question">
+									<h3>ما هي الخدمات المشمولة في الإيجار؟</h3>
+									<span class="faq-icon">+</span>
+								</div>
+								<div class="faq-answer">
+									<p>الإيجار يشمل: الإنترنت المجاني عالي السرعة، الكهرباء والماء، الصيانة الدورية، التنظيف الأسبوعي، الحراسة والأمان 24 ساعة، ومواقف السيارات المجانية.</p>
+								</div>
+							</div>
+							
+							<!-- FAQ Item 4 -->
+							<div class="faq-item">
+								<div class="faq-question">
+									<h3>هل يمكن للطالب الحصول على خصومات خاصة؟</h3>
+									<span class="faq-icon">+</span>
+								</div>
+								<div class="faq-answer">
+									<p>نعم، نوفر خصومات خاصة للطلاب الجامعيين مع العقود السنوية تصل إلى 15%. كما نقبل الدفع الفصلي لتسهيل إدارة الميزانية الطلابية.</p>
+								</div>
+							</div>
+							
+							<!-- FAQ Item 5 -->
+							<div class="faq-item">
+								<div class="faq-question">
+									<h3>هل المكان آمن للعائلات والأطفال؟</h3>
+									<span class="faq-icon">+</span>
+								</div>
+								<div class="faq-answer">
+									<p>وايت دايموند بلازا مصمم خصيصاً ليكون آمناً للعائلات. يوجد حراسة 24 ساعة، كاميرات مراقبة، مداخل آمنة، ومساحات لعب آمنة للأطفال.</p>
+								</div>
+							</div>
+							
+							<!-- FAQ Item 6 -->
+							<div class="faq-item">
+								<div class="faq-question">
+									<h3>ما هي شروط العقد وإجراءات الحجز؟</h3>
+									<span class="faq-icon">+</span>
+								</div>
+								<div class="faq-answer">
+									<p>العقد بسيط ويتطلب: صورة الهوية، إثبات الدخل أو الدراسة، ودفع شهر مقدماً + تأمين قابل للاسترداد. يمكن إتمام الحجز خلال 24 ساعة.</p>
+								</div>
+							</div>
+							
+							<!-- FAQ Item 7 -->
+							<div class="faq-item">
+								<div class="faq-question">
+									<h3>هل يمكن للشركات حجز عدة شقق لموظفيها؟</h3>
+									<span class="faq-icon">+</span>
+								</div>
+								<div class="faq-answer">
+									<p>نعم، نوفر باقات خاصة للشركات والمؤسسات تشمل خصومات تصل إلى 20% مع خدمات إدارية متكاملة وفواتير موحدة.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				<img class="content__img spacer" src="img/LOGO PNG.png" />
+			</div>
+			<!-- Footer -->
+			<footer class="footer">
+				<div class="footer-container">
+					<div class="footer-section">
+						<h3>وايت دايموند بلازا</h3>
+						<p>بيتك الثاني في قلب المدينة المنورة</p>
+						<p>شقق مفروشة فاخرة للإيجار طويل المدى</p>
+					</div>
+					<div class="footer-section">
+						<h4>الشقق المتاحة</h4>
+						<ul>
+							<li><a href="rooms-1br.html">شقق غرفة واحدة</a></li>
+							<li><a href="rooms-2br.html">شقق غرفتين</a></li>
+						</ul>
+					</div>
+					<div class="footer-section">
+						<h4>معلومات الاتصال</h4>
+						<p>📞 الهاتف: +966 50 123 4567</p>
+						<p>📧 البريد الإلكتروني: info@whitediamondplaza.com</p>
+						<p>📍 العنوان: حي بني حارثة، المدينة المنورة</p>
+					</div>
+					<div class="footer-section">
+						<h4>تابعنا</h4>
+						<div class="social-links">
+							<a href="https://wa.me/966501234567" target="_blank">واتساب</a>
+							<a href="mailto:info@whitediamondplaza.com">البريد الإلكتروني</a>
+						</div>
+					</div>
+				</div>
+				<div class="footer-bottom">
+					<p>&copy; 2024 وايت دايموند بلازا. جميع الحقوق محفوظة.</p>
+				</div>
+			</footer>
+		</main>
+		<script src="js/gsap.min.js"></script>
+		<script src="js/ScrollTrigger.min.js"></script>
+		<script src="js/lenis.min.js"></script>
+		<script src="js/imagesloaded.pkgd.min.js"></script>
+		<script type="module" src="js/demo10/index.js"></script>
+		
+		<!-- Custom JavaScript for Navbar and WhatsApp -->
+		<script>
+			// Fallback function for hamburger click
+			function toggleMobileMenu() {
+				console.log('Fallback function called');
+				const mobileOverlay = document.querySelector('.mobile-overlay');
+				const hamburger = document.querySelector('.hamburger');
+				
+				if (mobileOverlay) {
+					mobileOverlay.classList.toggle('active');
+					document.body.style.overflow = mobileOverlay.classList.contains('active') ? 'hidden' : 'auto';
+					
+					if (hamburger) {
+						hamburger.classList.toggle('active');
+					}
+				}
+			}
+			
+			// Wait for DOM to be fully loaded
+			document.addEventListener('DOMContentLoaded', function() {
+				console.log('DOM loaded, initializing mobile menu...');
+				
+				// Mobile menu toggle
+				const hamburger = document.querySelector('.hamburger');
+				const mobileOverlay = document.querySelector('.mobile-overlay');
+				const closeMenu = document.querySelector('.close-menu');
+				
+				console.log('Hamburger:', hamburger);
+				console.log('Mobile Overlay:', mobileOverlay);
+				console.log('Close Menu:', closeMenu);
+				
+				if (hamburger && mobileOverlay) {
+					console.log('Adding hamburger click listener...');
+					
+					hamburger.addEventListener('click', function(e) {
+						e.preventDefault();
+						e.stopPropagation();
+						console.log('Hamburger clicked!');
+						mobileOverlay.classList.add('active');
+						document.body.style.overflow = 'hidden';
+					});
+					
+					if (closeMenu) {
+						closeMenu.addEventListener('click', function(e) {
+							e.preventDefault();
+							console.log('Close menu clicked!');
+							mobileOverlay.classList.remove('active');
+							document.body.style.overflow = 'auto';
+						});
+					}
+					
+					// Close menu when clicking on overlay
+					mobileOverlay.addEventListener('click', function(e) {
+						if (e.target === mobileOverlay) {
+							console.log('Overlay clicked, closing menu');
+							mobileOverlay.classList.remove('active');
+							document.body.style.overflow = 'auto';
+						}
+					});
+					
+					// Close menu when clicking on a link
+					const mobileLinks = document.querySelectorAll('.mobile-nav-list a');
+					mobileLinks.forEach(link => {
+						link.addEventListener('click', function() {
+							console.log('Mobile link clicked, closing menu');
+							mobileOverlay.classList.remove('active');
+							document.body.style.overflow = 'auto';
+						});
+					});
+				} else {
+					console.log('Hamburger or mobile overlay not found!');
+				}
+				
+				// Mobile dropdown toggle
+				const mobileDropdownToggle = document.querySelector('.mobile-dropdown-toggle');
+				const mobileDropdownMenu = document.querySelector('.mobile-dropdown-menu');
+				
+				if (mobileDropdownToggle && mobileDropdownMenu) {
+					mobileDropdownToggle.addEventListener('click', function(e) {
+						e.preventDefault();
+						console.log('Mobile dropdown clicked');
+						mobileDropdownMenu.classList.toggle('active');
+					});
+				}
+				
+				// Navbar scroll effect
+				window.addEventListener('scroll', function() {
+					const navbar = document.querySelector('.navbar');
+					if (navbar) {
+						if (window.scrollY > 100) {
+							navbar.style.background = 'rgba(18, 16, 14, 0.98)';
+						} else {
+							navbar.style.background = 'rgba(18, 16, 14, 0.95)';
+						}
+					}
+				});
+				
+				// WhatsApp button scroll effect
+				window.addEventListener('scroll', function() {
+					const whatsappBtn = document.querySelector('.whatsapp-btn');
+					if (whatsappBtn) {
+						if (window.scrollY > 300) {
+							whatsappBtn.style.transform = 'scale(1)';
+							whatsappBtn.style.opacity = '1';
+						} else {
+							whatsappBtn.style.transform = 'scale(0.8)';
+							whatsappBtn.style.opacity = '0.7';
+						}
+					}
+				});
+				
+				// Flip Cards functionality
+				const cards = document.querySelectorAll('.flip-card');
+				cards.forEach(card => {
+					card.addEventListener('click', () => {
+						card.classList.toggle('flipped');
+
+						// تشغيل الأيقونات مع كل قلبة
+						card.classList.add('animate-icons');
+						setTimeout(() => {
+							card.classList.remove('animate-icons');
+						}, 1000);
+					});
+				});
+				
+				// FAQ Accordion functionality
+				const faqItems = document.querySelectorAll('.faq-item');
+				faqItems.forEach(item => {
+					const question = item.querySelector('.faq-question');
+					
+					question.addEventListener('click', () => {
+						const isActive = item.classList.contains('active');
+						
+						// Close all other FAQ items
+						faqItems.forEach(otherItem => {
+							if (otherItem !== item) {
+								otherItem.classList.remove('active');
+							}
+						});
+						
+						// Toggle current item
+						item.classList.toggle('active', !isActive);
+					});
+				});
+				
+				// Booking Form functionality with WhatsApp redirect
+				document.getElementById("bookingForm").addEventListener("submit", function(e) {
+					e.preventDefault();
+					
+					const formData = new FormData(this);
+					const name = formData.get('name');
+					const phone = formData.get('phone');
+					const email = formData.get('email');
+					const apartment = formData.get('apartment');
+					const duration = formData.get('duration');
+					const date = formData.get('date');
+					const message = formData.get('message');
+					
+					// Create WhatsApp message
+					const bookingMessage = `حجز جديد:
+الاسم: ${name}
+الهاتف: ${phone}
+البريد الإلكتروني: ${email}
+نوع الشقة: ${apartment}
+مدة الإيجار: ${duration}
+تاريخ السكن: ${date}
+رسالة إضافية: ${message}`;
+					
+					// Open WhatsApp
+					const whatsappUrl = `https://wa.me/966501234567?text=${encodeURIComponent(bookingMessage)}`;
+					window.open(whatsappUrl, '_blank');
+					
+					// Show success message
+					alert('تم إرسال طلب الحجز! سيتم التواصل معك قريباً.');
+				});
+				
+				// Inquiry Form 2 functionality
+				const inquiryForm2 = document.getElementById('inquiryForm2');
+				if (inquiryForm2) {
+					inquiryForm2.addEventListener('submit', function(e) {
+						e.preventDefault();
+						
+						const formData = new FormData(this);
+						const name = formData.get('name');
+						const phone = formData.get('phone');
+						const inquiryType = formData.get('inquiryType');
+						const message = formData.get('message');
+						
+						// Create WhatsApp message
+						const inquiryMessage = `استفسار جديد:
+الاسم: ${name}
+الهاتف: ${phone}
+نوع الاستفسار: ${inquiryType}
+الرسالة: ${message}`;
+						
+						// Open WhatsApp
+						const whatsappUrl = `https://wa.me/966501234567?text=${encodeURIComponent(inquiryMessage)}`;
+						window.open(whatsappUrl, '_blank');
+						
+						// Show success message
+						alert('تم إرسال الاستفسار! سيتم التواصل معك قريباً.');
+					});
+				}
+			});
+			
+			// Function to scroll to booking form
+			function scrollToForm() {
+				const formElement = document.getElementById('booking-form');
+				if (formElement) {
+					formElement.scrollIntoView({ 
+						behavior: 'smooth',
+						block: 'start'
+					});
+				}
+			}
+			
+			// Exclusive offers message animation
+			function showExclusiveOffer() {
+				const offerElement = document.getElementById('exclusiveOffer');
+				if (offerElement) {
+					// Show the message
+					offerElement.classList.add('show');
+					
+					// Hide after 3 seconds
+					setTimeout(() => {
+						offerElement.classList.remove('show');
+					}, 3000);
+				}
+			}
+			
+			// Book now message animation
+			function showBookNowOffer() {
+				const bookNowElement = document.getElementById('bookNowOffer');
+				if (bookNowElement) {
+					// Show the message
+					bookNowElement.classList.add('show');
+					
+					// Hide after 3 seconds
+					setTimeout(() => {
+						bookNowElement.classList.remove('show');
+					}, 3000);
+				}
+			}
+			
+			// Show messages alternately every 7 seconds
+			let messageCounter = 0;
+			function showNextMessage() {
+				if (messageCounter % 2 === 0) {
+					showExclusiveOffer();
+				} else {
+					showBookNowOffer();
+				}
+				messageCounter++;
+			}
+			
+			// Show messages every 7 seconds
+			setInterval(showNextMessage, 7000);
+			
+			// Show first message after 2 seconds
+			setTimeout(() => {
+				showExclusiveOffer();
+				messageCounter = 1;
+			}, 2000);
+		</script>
+		
+		<!-- Swiper JS -->
+		<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+	</body>
+</html>

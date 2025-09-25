@@ -1,0 +1,45 @@
+الأوامر الجاهزة لرفع المشروع إلى GitHub:
+
+1. git init
+2. git add .
+3. git commit -m "first commit"
+4. git branch -M main
+5. git remote add origin https://github.com/Mahmouddiab20/white-diamond-.git
+6. git push -u origin main
+
+========================================
+
+خطوات التنفيذ:
+
+1. تثبيت Git أولاً:
+   - اذهب إلى: https://git-scm.com/downloads
+   - حمل "Git for Windows"
+   - ثبت مع الإعدادات الافتراضية
+   - أعد تشغيل Command Prompt
+
+2. بعد تثبيت Git، افتح Command Prompt في مجلد المشروع:
+   cd "C:\Users\zigzag\Desktop\white diamond"
+
+3. انسخ والصق الأوامر التالية واحداً تلو الآخر:
+
+git init
+git add .
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Mahmouddiab20/white-diamond-.git
+git push -u origin main
+
+========================================
+
+الطريقة البديلة (بدون Git):
+
+1. اذهب إلى: https://github.com/Mahmouddiab20/white-diamond-
+2. اضغط "uploading an existing file"
+3. اسحب جميع الملفات من مجلد المشروع
+4. اكتب: "first commit"
+5. اضغط "Commit changes"
+
+========================================
+
+ملاحظة: Git غير مثبت على النظام حالياً
+لذلك تحتاج لتثبيته أولاً أو استخدام الطريقة البديلة
