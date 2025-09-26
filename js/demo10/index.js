@@ -72,6 +72,7 @@ class ApartmentSlider {
         this.isAnimating = false;
         this.autoPlayInterval = null;
         this.autoPlayDelay = 4000; // 4 seconds
+        this.imagesLoaded = new Set(); // Track loaded images
         
         if (this.slider) {
             this.init();
@@ -79,9 +80,28 @@ class ApartmentSlider {
     }
     
     init() {
-        // Add event listeners
-        this.prevBtn?.addEventListener('click', () => this.prevSlide());
-        this.nextBtn?.addEventListener('click', () => this.nextSlide());
+        // Preload all slider images
+        this.preloadImages();
+        
+        // Add event listeners with immediate visual feedback
+        this.prevBtn?.addEventListener('click', (e) => {
+            e.preventDefault();
+            this.prevBtn.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+                this.prevBtn.style.transform = 'scale(1)';
+            }, 100);
+            console.log('Previous button clicked - going left');
+            this.prevSlide();
+        });
+        this.nextBtn?.addEventListener('click', (e) => {
+            e.preventDefault();
+            this.nextBtn.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+                this.nextBtn.style.transform = 'scale(1)';
+            }, 100);
+            console.log('Next button clicked - going right');
+            this.nextSlide();
+        });
         
         // Add touch/swipe support
         this.addTouchSupport();
@@ -94,16 +114,61 @@ class ApartmentSlider {
         this.slider.addEventListener('mouseleave', () => this.startAutoPlay());
     }
     
+    // Preload all slider images to prevent delays
+    preloadImages() {
+        this.slides.forEach((slide, index) => {
+            const img = slide.querySelector('.slider-img');
+            if (img && img.src) {
+                const imageLoader = new Image();
+                imageLoader.onload = () => {
+                    this.imagesLoaded.add(index);
+                    console.log(`Image ${index + 1} preloaded successfully`);
+                };
+                imageLoader.onerror = () => {
+                    console.warn(`Failed to preload image ${index + 1}: ${img.src}`);
+                };
+                imageLoader.src = img.src;
+            }
+        });
+    }
+    
     goToSlide(index, direction = 'next') {
         if (this.isAnimating || index === this.currentSlide) return;
         
         this.isAnimating = true;
         
+        // Perform transition immediately - don't wait for image preloading
+        this.performSlideTransition(index, direction);
+        
+        // Preload the target image in background (non-blocking)
+        if (!this.imagesLoaded.has(index)) {
+            const targetSlide = this.slides[index];
+            const img = targetSlide.querySelector('.slider-img');
+            if (img && img.src) {
+                const imageLoader = new Image();
+                imageLoader.onload = () => {
+                    this.imagesLoaded.add(index);
+                };
+                imageLoader.onerror = () => {
+                    console.warn(`Failed to load image for slide ${index + 1}`);
+                };
+                imageLoader.src = img.src;
+            }
+        }
+    }
+    
+    performSlideTransition(index, direction) {
         // Remove active classes
         this.slides[this.currentSlide].classList.remove('active');
         
-        // Add animation classes
-        this.slides[this.currentSlide].classList.add(direction === 'next' ? 'slide-out' : 'slide-out');
+        // Add animation classes based on direction
+        if (direction === 'next') {
+            // Next: current slide goes out left, new slide comes in from right
+            this.slides[this.currentSlide].classList.add('slide-out');
+        } else {
+            // Previous: current slide goes out right, new slide comes in from left
+            this.slides[this.currentSlide].classList.add('slide-out-right');
+        }
         
         // Update current slide
         this.currentSlide = index;
@@ -111,16 +176,20 @@ class ApartmentSlider {
         // Add active classes to new slide
         this.slides[this.currentSlide].classList.add('active');
         
-        // Add slide-in animation
-        this.slides[this.currentSlide].classList.add('slide-in');
+        // Add slide-in animation based on direction
+        if (direction === 'next') {
+            this.slides[this.currentSlide].classList.add('slide-in');
+        } else {
+            this.slides[this.currentSlide].classList.add('slide-in-left');
+        }
         
-        // Clean up animation classes
+        // Clean up animation classes with reduced delay
         setTimeout(() => {
             this.slides.forEach(slide => {
-                slide.classList.remove('slide-in', 'slide-out');
+                slide.classList.remove('slide-in', 'slide-out', 'slide-in-left', 'slide-out-right');
             });
             this.isAnimating = false;
-        }, 500);
+        }, 200); // Reduced from 300ms to 200ms for faster response
     }
     
     nextSlide() {
@@ -247,12 +316,12 @@ function initializeCardsSlider() {
             },
             breakpoints: {
                 320: {
-                    slidesPerView: 1,
-                    spaceBetween: 15,
+                    slidesPerView: 3,
+                    spaceBetween: 10,
                 },
                 480: {
-                    slidesPerView: 1,
-                    spaceBetween: 20,
+                    slidesPerView: 3,
+                    spaceBetween: 15,
                 },
                 768: {
                     slidesPerView: 3,
